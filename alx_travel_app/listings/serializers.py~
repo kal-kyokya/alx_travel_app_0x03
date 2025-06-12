@@ -40,6 +40,6 @@ class BookingSerializer(serializers.Serializer):
         	The total number of nights booked for
         """
         datetime_obj = booking_obj.end_date - booking_obj.start_date
-        total_nights = (datetime_obj.seconds / 60 / 60 / 24) - 1
+        nights = (datetime_obj.seconds / 60 / 60 / 24) - 1
 
-        return total_nights
+        return nights
