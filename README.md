@@ -1,4 +1,4 @@
-# Milestone 1: Setup and Database Configuration
+# Practice: Setup and Database Configuration
 
 ## About the Project
 
