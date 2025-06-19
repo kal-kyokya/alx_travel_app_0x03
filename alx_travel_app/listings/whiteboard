@@ -1,0 +1,33 @@
+Wednesday, 18th June 2025
+------------------------------------------------------------------------------
+
+Property and Booking
+
+User books Property X between Y & Z:
+ X.id = 1
+ Y.date = 18-jun-25
+ Z.date = 28-jun-25
+ * Booking(property_id=X.id, start_date=X.date, end_date=Z.date, ...booking)
+
+Is Property available between X & Y:
+ * Booking.objects.filter(property_id=X.id, start_date=Y.date)
+ * Yes, Add to Booking
+ * No, Send Notification
+
+Needs to sort Booking by dates?
+
+ - ........R......S.....
+ - ..M.......N..........
+ - ......A......B.......
+
+NEEDS TO USE: 'datetime' module to create time interval between
+Model field start/end dates.
+==============================================================================
+
+Thursday, 19th June 2025
+------------------------------------------------------------------------------
+
+from datetime import datetime, timezone, timedelta
+
+ * We query a set from 'Booking' where year and month == req.year & req.month
+ * 'timezone' boils input date to X seconds and we compare from there?
