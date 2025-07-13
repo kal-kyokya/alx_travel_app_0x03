@@ -28,7 +28,7 @@ schema_view = get_schema_view(
         description='API documentation for Listings and Bookings',
     ),
     public=True,
-    permissions_classes=[permissions.AllowAny],
+    permission_classes=[permissions.AllowAny],
 )
 
 urlpatterns = [

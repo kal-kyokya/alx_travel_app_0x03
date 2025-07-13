@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'listings'
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,20 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Celery config
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+
+# Optional: Store task results
+INSTALLED_APPS += ['django_celery_results']
+CELERY_RESULT_BACKEND = 'django-db'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # For dev
+EMAIL_HOST = 'smtp.example.com' # For prod
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'test@email.com'
+EMAIL_HOST_PASSWORD = 'TESTPASSWORD'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'no-reply@emal.com'
