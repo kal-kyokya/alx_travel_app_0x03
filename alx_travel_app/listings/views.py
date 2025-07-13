@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import Listing, Booking
 from .serializers import ListingSerializer, BookingSerializer
+from .tasks import send_booking_confirmation_email
 
 
 # --------------------------------------------------
@@ -25,3 +26,9 @@ class BookingViewSet(ModelViewSet):
     """
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
+
+    def perform_create(self, serializer):
+        booking = serializer.save()
+        user_email = booking.customer.email
+        info = f"ID: {booking.id}, Date: {booking.date}, Total: {booking.total}"
+        send_booking_confirmation_email.delay(user_email, info)
