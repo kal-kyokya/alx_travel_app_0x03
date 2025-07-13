@@ -58,3 +58,5 @@ Install essential packages:
 ### Version Control and Submission:
 * Initialize a Git repository and commit all project setup files.
 * Push my code to a GitHub repository named <b>alxtravelapp</b> with the specified structure.
+
+This is Version 3.
